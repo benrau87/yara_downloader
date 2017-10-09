@@ -1,5 +1,7 @@
 #!/bin/bash
 ####################################################################################################################
+RULESFILE=/opt/rules  ##set rules file output
+
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -69,9 +71,10 @@ else
 fi
 
 }
+export DEBIAN_FRONTEND=noninteractive
+
 ########################################
 ##BEGIN MAIN SCRIPT##
-export DEBIAN_FRONTEND=noninteractive
-RULESFILE=/opt/rules  ##set rules file output
+
 dir_check $RULESFILE
 python scripts/GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -o $RULESFILE
