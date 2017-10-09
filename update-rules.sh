@@ -72,3 +72,5 @@ fi
 ########################################
 ##BEGIN MAIN SCRIPT##
 export DEBIAN_FRONTEND=noninteractive
+
+python GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -o $PWD
