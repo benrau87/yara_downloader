@@ -76,15 +76,17 @@ export DEBIAN_FRONTEND=noninteractive
 ########################################
 ##BEGIN MAIN SCRIPT##
 dir_check $RULESFILE
-dir_check $RULESFILE/all
+dir_check $RULESFILE/unparsed_rules
 dir_check $RULESFILE/rules
+dir_check $RULESFILE/rules/all
 print_notification 'Downloading rules...this can take a while'
-python scripts/GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -o $RULESFILE/all &>> $logfile
+python scripts/GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -o $RULESFILE/unparsed_rules &>> $logfile
 error_check 'Rules downloaded'
 print_notification 'Sorting rules and checking for duplicates and bad files'
-python scripts/yarasorter/sorter.py -f $RULESFILE/all/* -o $RULESFILE/rules -r -t
+python scripts/yarasorter/sorter.py -f $RULESFILE/unparsed_rules/* -o $RULESFILE/rules -r -t
 rm -rf $RULESFILE/rules/Broken*
 rm -rf $RULESFILE/rules/DUP*
 rm -rf $RULESFILE/rules/Imports
 rm -rf $RULESFILE/rules/Meta*
+cp $RULESFILE/rules/**/*.yar* $RULESFILE/rules/all
 error_check 'Rules sorted and ready'
