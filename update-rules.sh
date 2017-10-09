@@ -1,6 +1,6 @@
 #!/bin/bash
 ####################################################################################################################
-RULESFILE=/opt/rules  ##set rules file output
+RULESFILE=/opt/yara-rules/  ##set rules file output
 
 
 if [ "$EUID" -ne 0 ]
