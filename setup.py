@@ -77,6 +77,7 @@ dir_check $working_dir
 dir_check $working_dir/scripts
 
 cp $gitdir/update-rules.sh $working_dir &>> $logfile
+touch rules_repos.txt
 
 cd $working_dir/scripts
 git clone https://github.com/unusedPhD/GithubDownloader &>> $logfile
