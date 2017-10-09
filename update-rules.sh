@@ -83,4 +83,8 @@ python scripts/GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -
 error_check 'Rules downloaded'
 print_notification 'Sorting rules and checking for duplicates and bad files'
 python scripts/yarasorter/sorter.py -f $RULESFILE/all/* -o $RULESFILE/rules -r -t
+rm -rf $RULESFILE/rules/Broken*
+rm -rf $RULESFILE/rules/DUP*
+rm -rf $RULESFILE/rules/Imports
+rm -rf $RULESFILE/rules/Meta*
 error_check 'Rules sorted and ready'
