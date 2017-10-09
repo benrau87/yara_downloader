@@ -74,9 +74,11 @@ export DEBIAN_FRONTEND=noninteractive
 working_dir=/opt/yara-rules #Change if you want a different output location
 
 dir_check $working_dir 
+dir_check $working_dir/scripts
+
 cp $gitdir/update-rules.sh $working_dir &>> $logfile
 
-cd $working_dir
+cd $working_dir/scripts
 git clone https://github.com/unusedPhD/GithubDownloader &>> $logfile
 git clone https://github.com/mkayoh/yarasorter &>> $logfile
 
