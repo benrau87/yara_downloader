@@ -78,8 +78,9 @@ dir_check $working_dir/scripts
 
 cp $gitdir/update-rules.sh $working_dir &>> $logfile
 cp $gitdir/rules_repos.txt $working_dir &>> $logfile
+chmod +x $working_dir/update-rules.sh
 
-cd $working_dir/scripts
+cd $working_dir/scripts 
 git clone https://github.com/unusedPhD/GithubDownloader &>> $logfile
 git clone https://github.com/mkayoh/yarasorter &>> $logfile
 
