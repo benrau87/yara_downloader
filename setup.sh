@@ -1,4 +1,5 @@
 #!/bin/bash
+working_dir=/opt/yara-rules #Change if you want a different output location
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -68,10 +69,9 @@ else
 fi
 
 }
+export DEBIAN_FRONTEND=noninteractive
 ########################################
 ##BEGIN MAIN SCRIPT##
-export DEBIAN_FRONTEND=noninteractive
-working_dir=/opt/yara-rules #Change if you want a different output location
 
 dir_check $working_dir 
 dir_check $working_dir/scripts
