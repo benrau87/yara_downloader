@@ -1,1 +1,4 @@
-
+https://github.com/Yara-Rules/rules
+https://github.com/kevthehermit/YaraRules
+https://github.com/x64dbg/yarasigs
+https://github.com/mikesxrs/Open-Source-YARA-rules
