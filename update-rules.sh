@@ -85,8 +85,8 @@ error_check 'Rules downloaded'
 print_notification 'Sorting rules and checking for duplicates and bad files'
 python scripts/yarasorter/sorter.py -f $RULESFILE/unparsed_rules/* -o $RULESFILE/rules -r -t
 rm -rf $RULESFILE/rules/Broken*
-rm -rf $RULESFILE/rules/DUP*
+rm -rf $RULESFILE/rules/Dup*
 rm -rf $RULESFILE/rules/Imports
 rm -rf $RULESFILE/rules/Meta*
-cp $RULESFILE/rules/**/*.yar* $RULESFILE/rules/all
+cp $RULESFILE/rules/**/** $RULESFILE/rules/all
 error_check 'Rules sorted and ready'
