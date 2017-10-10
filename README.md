@@ -1,7 +1,7 @@
 # yara_downloader
 Bash script to download yara rules
 
-Modify the repos file to add git repos for yara rules
+Modify the rules_repos.txt file to add git repos for yara rules
 
 Run setup.sh
 
