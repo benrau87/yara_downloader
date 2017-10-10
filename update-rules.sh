@@ -83,10 +83,10 @@ print_notification 'Downloading rules...this can take a while'
 python scripts/GithubDownloader/git_downloader.py -r rules_repos.txt -w *.yar* -o $RULESFILE/unparsed_rules &>> $logfile
 error_check 'Rules downloaded'
 print_notification 'Sorting rules and checking for duplicates and bad files'
-python scripts/yarasorter/sorter.py -f $RULESFILE/unparsed_rules/* -o $RULESFILE/rules -r -t
-rm -rf $RULESFILE/rules/Broken*
-rm -rf $RULESFILE/rules/Dup*
-rm -rf $RULESFILE/rules/Imports
-rm -rf $RULESFILE/rules/Meta*
-cp $RULESFILE/rules/**/** $RULESFILE/rules/all
+python scripts/yarasorter/sorter.py -f $RULESFILE/unparsed_rules/* -o $RULESFILE/rules -r -t &>> $logfile
+rm -rf $RULESFILE/rules/Broken* &>> $logfile
+rm -rf $RULESFILE/rules/Dup* &>> $logfile
+rm -rf $RULESFILE/rules/Imports &>> $logfile
+rm -rf $RULESFILE/rules/Meta* &>> $logfile
+cp $RULESFILE/rules/**/** $RULESFILE/rules/all &>> $logfile
 error_check 'Rules sorted and ready'
